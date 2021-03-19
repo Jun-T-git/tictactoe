@@ -15,7 +15,7 @@ function Square(props) {
 // Boardクラスコンポーネント
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+    return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} key={i} />;
   }
 
   render() {
@@ -23,7 +23,7 @@ class Board extends React.Component {
       <div>
         {Array(3).fill(null).map((value1, index1) => {
           return (
-            <div className="board-row">
+            <div className="board-row" key={index1}>
             {Array(3).fill(null).map((value2, index2) => {
               return (this.renderSquare(index1 * 3 + index2));
             })}
